@@ -164,7 +164,7 @@ VBlank:
 .ORG 0
 .SECTION "CharacterData"
 Sprite:
-	.INCBIN "biker.pic"
+	.INCBIN "bop0.pic"
 SprPal:
-	.INCBIN "biker.clr"
+	.INCBIN "bop0.clr"
 .ENDS
