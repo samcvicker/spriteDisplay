@@ -36,6 +36,22 @@ Start:
 	jsr SpriteInit
 
 	lda #(80-16)
+	sta $0000
+
+	lda #(224/2 - 16)
+	sta $0001
+
+	stz $0002
+
+	lda #%01110000
+	sta $0003
+
+	lda #%01010100
+	sta $0200
+
+	jsr SetupVideo
+
+	lda #$80
 	sta $4200	;Enable NMI
 
 forever:
@@ -66,30 +82,19 @@ _offscreen:
 	bne _offscreen
 	ldx #$0000
 	lda #$5555
-_xmsb:
-	sta $0000, X
+_clr:
+	sta $0200, X	;initialize all sprites to be off the scren
 	inx
 	inx
-	cpx #$0220
-	bne _xmsb
+	cpx #$0020
+	bne _clr
 
 	plp
+
 	rts
 
-;formula for displaying sprite in middle of screen:
-;	(screen/2 - half_sprite)
-	lda #(256/2 - 16)	;256 width screen resolution
-	sta $0000		;sprite x-coordinate
-	lda #(224/2 - 16)	;224 height screen resolution
-	sta $0001		;sprite y-coordinate
-
-	; $0002 and $0003 are already set to 0, which we want,
-	; (use palette 0, no sprite flip, and no priority
-
-	lda #%01010100		;clear X-MSB
-	sta $0200
-
 SetupVideo:
+	php
 	rep #$10
 	sep #$20	;8 bit A, 16 bit X/Y
 
@@ -97,14 +102,16 @@ SetupVideo:
 	stz $2102
 	stz $2103	;set OAM address to 0
 
+;******Transfer sprite data now
+
 	ldy #$0400	;writes $00 to $4300, #$04 to $4301
 	sty $4300	;cpu->ppu, auto increment, $2104 (OAM write)
 	stz $4302
 	stz $4303
+	ldy #$0220
+	sty $4305	;220 bytes to transfer
 	lda #$7E
 	sta $4304	;CPU address 7E:0000 - work RAM
-	ldy #$0220
-	sty $4305	; #$220 bytes to transfer
 	lda #$01
 	sta $420B
 
@@ -112,12 +119,13 @@ SetupVideo:
 			; (We are using a 32x32)
 	sta $2101
 
-	lda #%00010000	;enable sprites
+	lda #%00010000	;enable sprites (or BG1actually/??)
 	sta $212C
 
 	lda #$0F
 	sta $2100	;turn on screen, full brightness
 
+	plp
 	rts
 
 VBlank:
