@@ -51,8 +51,9 @@ Start:
 	lda #(224/2-16)
 	sta $0005
 	stz $0006
-	stz $0007
-	lda #%11010100	;clear x-msb
+	lda #%01110000
+	sta $0007
+	lda #%01010100	;clear x-msb
 	sta $0200
 
 	jsr SetupVideo
