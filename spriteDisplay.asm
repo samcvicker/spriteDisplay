@@ -35,18 +35,20 @@ Start:
 
 	jsr SpriteInit
 
-	lda #($80-16)
-	sta $0000
+	;lda #($80-16)
+	;sta $0000	; sprite x-coordinate
 
-	lda #(224/2 - 16)
-	sta $0001
+	;lda #(224/2 - 16)
+	;sta $0001	;sprite y-coordinate
 
-	stz $0002
+	;stz $0002	;starting at tile 0
 
-	lda #%01110000
-	sta $0003
+	;lda #%01110000	;horizontal flip, top priority
+	;sta $0003
 
-	lda #%01010100
+	
+
+	lda #%01010100	;clear x-msb
 	sta $0200
 
 	jsr SetupVideo
@@ -63,30 +65,33 @@ forever:
 	sta PalNum
 
 	jmp forever
-
+;initializes the sprite tables!
 SpriteInit:
 	php	;push processor status onto stack
 
 	rep #$30	;16 bit A/X/Y
 
 	ldx #$0000
-	lda #$0001	;prepare loop 1
-
+	lda #$01	;prepare loop 1
+;puts all sprites offscreen
 _offscreen:
-	sta $0000, X
-	inx
-	inx
-	inx
-	inx
-	cpx #$0200
+	sta $0000, X	;increases 4 times bc 4 bytes per sprite
+	inx	;Byte 1: xxxxxxxx 	x: X coordinate
+	inx	;Byte 2: yyyyyyyy	y: Y cordinate
+	inx	;Byte 3: cccccccc	c: Starting tile #
+	inx	;Byte 4: vhoopppc	v: vertical flip, h: horizontal
+			;flip, o: priority bits, p: palette #
+	cpx #$0200	;200 is the size of the first OAM table
 	bne _offscreen
 	ldx #$0000
 	lda #$5555
 _clr:
-	sta $0200, X	;initialize all sprites to be off the scren
-	inx
-	inx
-	cpx #$0020
+	sta $0200, X	;increases 2 times bc 2 bits per sprite
+	inx	;bit1 - enable or disable the x coordinate's 9th bit
+		;(which places it off of the screen)
+	inx	;bit2 - toggle sprite size: 0 - small, 1 - large
+
+	cpx #$0020	;20 is the size of the OAM table
 	bne _clr
 
 	plp
