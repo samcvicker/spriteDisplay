@@ -35,7 +35,7 @@ Start:
 
 	jsr SpriteInit
 
-	lda #(80-16)
+	lda #($80-16)
 	sta $0000
 
 	lda #(224/2 - 16)
@@ -164,7 +164,7 @@ VBlank:
 .ORG 0
 .SECTION "CharacterData"
 Sprite:
-	.INCBIN "rufflez2.pic"
+	.INCBIN "newtest.pic"
 SprPal:
 	.INCBIN "rufflez2.clr"
 .ENDS
