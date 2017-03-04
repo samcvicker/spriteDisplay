@@ -46,10 +46,6 @@ Start:
 	;lda #%01110000	;horizontal flip, top priority
 	;sta $0003
 	stz $0003
-	stz $0004
-	stz $0005
-	stz $0006
-	stz $0007
 	lda #%01010100	;clear x-msb
 	sta $0200
 
