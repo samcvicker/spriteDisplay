@@ -39,11 +39,16 @@ Start:
 	;sta $0000	; sprite x-coordinate
 	;lda #(224/2 - 16)
 	;sta $0001	;sprite y-coordinate
-	;stz $0002	;starting at tile 0
+	;stz $0002	;starting at tile 0 of tileset
 	;lda #%01110000	;horizontal flip, top priority
 	;sta $0003
-	lda #32
+	stz $0000
+	stz $0001
+	stz $0002
+	stz $0003
+	lda #($80-16)
 	sta $0004
+	lda #(224/2-16)
 	stz $0005
 	stz $0006
 	stz $0007
