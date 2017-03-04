@@ -42,6 +42,11 @@ Start:
 	;stz $0002	;starting at tile 0
 	;lda #%01110000	;horizontal flip, top priority
 	;sta $0003
+	lda #32
+	sta $0004
+	stz $0005
+	stz $0006
+	stz $0007
 	lda #%01010100	;clear x-msb
 	sta $0200
 
