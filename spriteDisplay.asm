@@ -46,8 +46,8 @@ Start:
 	;lda #%01110000	;horizontal flip, top priority
 	;sta $0003
 
-	;lda #%01010100	;clear x-msb
-	;sta $0200
+	lda #%01010100	;clear x-msb
+	sta $0200
 
 	jsr SetupVideo
 
