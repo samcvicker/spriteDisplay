@@ -49,7 +49,7 @@ Start:
 	lda #($80-16)
 	sta $0004
 	lda #(224/2-16)
-	stz $0005
+	sta $0005
 	stz $0006
 	stz $0007
 	lda #%01010100	;clear x-msb
@@ -76,7 +76,7 @@ SpriteInit:
 	rep #$30	;16 bit A/X/Y
 
 	ldx #$0000
-	lda #01	;prepare loop 1
+	lda #$01	;prepare loop 1
 ;puts all sprites offscreen
 _offscreen:
 	sta $0000, X	;increases 4 times bc 4 bytes per sprite
@@ -130,7 +130,7 @@ SetupVideo:
 			; (We are using a 32x32)
 	sta $2101
 
-	lda #%00010000	;enable sprites (or BG1actually/??)
+	lda #%00010000	;enable sprites (objects in oam)
 	sta $212C
 
 	lda #$0F
