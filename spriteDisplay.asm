@@ -50,8 +50,9 @@ Start:
 	lda #($80-16)
 	sta $0004
 	lda #(224/2-16)
-	sta $001f
-	stz $0006
+	sta $0005
+	lda #%00000010
+	sta $0006
 	stz $0007
 	lda #%01010100	;clear x-msb
 	sta $0200
