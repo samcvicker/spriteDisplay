@@ -47,13 +47,6 @@ Start:
 	lda #%00000001
 	sta $0002
 	stz $0003
-	lda #($80-16)
-	sta $0004
-	lda #(224/2-16)
-	sta $0005
-	lda #%00000010
-	sta $0006
-	stz $0007
 	lda #%01010100	;clear x-msb
 	sta $0200
 
@@ -152,6 +145,15 @@ VBlank:
 	phd
 
 	sep #$20	;A/mem = 8 bit
+
+
+	lda #($80-16)
+	sta $0004
+	lda #(224/2-16)
+	sta $0005
+	lda #%00000010
+	sta $0006
+	stz $0007
 
 	stz $2121
 	lda PalNum
