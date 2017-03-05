@@ -85,6 +85,10 @@ _offscreen:
 	inx	;Byte 3: cccccccc	c: Starting tile #
 	inx	;Byte 4: vhoopppc	v: vertical flip, h: horizontal
 			;flip, o: priority bits, p: palette #
+	inx
+	inx
+	inx
+	inx
 	cpx #$0200	;200 is the size of the first OAM table
 	bne _offscreen
 	ldx #$0000
@@ -128,7 +132,7 @@ SetupVideo:
 
 	;lda #%10100000	;32x32 and 64x64 size sprites
 			; (We are using a 32x32)
-	lda #%00000000
+	lda #%00000000	;changed it to 8x8 ;)
 	sta $2101
 
 	lda #%00010000	;enable sprites (objects in oam)
