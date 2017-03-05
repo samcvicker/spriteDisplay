@@ -113,8 +113,8 @@ SetupVideo:
 	stz $2103	;set OAM address to 0
 
 ;******Transfer sprite data now
-	stz $2102	;set OAM address to 0
-	stz $2103
+	;stz $2102	;set OAM address to 0
+	;stz $2103
 
 	ldy #$0400	;writes $00 to $4300, #$04 to $4301
 	sty $4300	;cpu->ppu, auto increment, $2104 (OAM write)
