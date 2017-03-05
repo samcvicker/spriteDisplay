@@ -20,7 +20,7 @@ Start:
 	rep #$10
 	sep #$20
 
-	lda #%00001001
+	lda #%00000001
 	sta $2105
 
 	;blue background
