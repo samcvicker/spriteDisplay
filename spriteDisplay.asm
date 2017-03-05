@@ -85,10 +85,6 @@ _offscreen:
 	inx	;Byte 3: cccccccc	c: Starting tile #
 	inx	;Byte 4: vhoopppc	v: vertical flip, h: horizontal
 			;flip, o: priority bits, p: palette #
-	inx
-	inx
-	inx
-	inx
 	cpx #$0200	;200 is the size of the first OAM table
 	bne _offscreen
 	ldx #$0000
