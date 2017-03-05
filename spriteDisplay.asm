@@ -43,7 +43,8 @@ Start:
 	;lda #%01110000	;horizontal flip, top priority
 	;sta $0003
 	stz $0000
-	stz $0001
+	lda #%00000001
+	sta $0001
 	stz $0002
 	stz $0003
 	lda #($80-16)
