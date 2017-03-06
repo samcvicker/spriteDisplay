@@ -127,9 +127,9 @@ SetupVideo:
 	lda #$01
 	sta $420B
 
-	lda #%10100000	;32x32 and 64x64 size sprites
+	;lda #%10100000	;32x32 and 64x64 size sprites
 			; (We are using a 32x32)
-	;lda #%00000000	;changed it to 8x8 ;)
+	lda #%00000000	;changed it to 8x8 ;)
 	sta $2101
 
 	lda #%00010000	;enable sprites (objects in oam)
