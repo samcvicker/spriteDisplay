@@ -77,7 +77,7 @@ SpriteInit:
 
 	rep #$30	;16 bit A/X/Y
 
-	ldx $0000
+	ldx #$0000
 	lda #$01	;prepare loop 1
 ;puts all sprites offscreen
 _offscreen:
@@ -127,9 +127,9 @@ SetupVideo:
 	lda #$01
 	sta $420B
 
-	;lda #%10100000	;32x32 and 64x64 size sprites
+	lda #%10100000	;32x32 and 64x64 size sprites
 			; (We are using a 32x32)
-	lda #%00000000	;changed it to 8x8 ;)
+	;lda #%00000000	;changed it to 8x8 ;)
 	sta $2101
 
 	lda #%00010000	;enable sprites (objects in oam)
