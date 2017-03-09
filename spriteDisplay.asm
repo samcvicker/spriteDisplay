@@ -48,8 +48,7 @@ Start:
 	;stz $0003
 	lda #8
 	sta $0004
-	lda #30
-	sta $0005
+	;sta $0005
 	lda #%00000010
 	sta $0006
 	stz $0007
