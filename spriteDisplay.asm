@@ -78,9 +78,10 @@ SpriteInit:
 	rep #$30	;16 bit A/X/Y
 
 	ldx #$0000
-	lda #$01	;prepare loop 1
+	;lda #$01	;prepare loop 1
 ;puts all sprites offscreen
 _offscreen:
+	lda #$01
 	sta $0000, X
 	inx
 	inx
