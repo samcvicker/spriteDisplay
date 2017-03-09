@@ -65,9 +65,7 @@ _loopAlphabet:
 	ina
 	ina
 	ina
-	ina
-	ina
-	
+	ina	
 	cpx #60
 	bne _loopAlphabet
 
