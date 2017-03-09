@@ -46,13 +46,13 @@ Start:
 	;stz $0001
 	;stz $0002
 	;stz $0003
-	;lda #($80-16)
-	;sta $0004
-	;lda #(224/2-16)
-	;sta $0005
-	;lda #%00000010
-	;sta $0006
-	;stz $0007
+	lda #($80-16)
+	sta $0004
+	lda #(224/2-16)
+	sta $0005
+	lda #%00000010
+	sta $0006
+	stz $0007
 
 	lda #%00000000	;clear x-msb
 	sta $0200
@@ -86,7 +86,6 @@ _offscreen:
 	inx
 	inx
 	inx
-	ina
 	cpx #$0200	;200 is the size of the first OAM table
 	bne _offscreen
 	ldx #$0000
