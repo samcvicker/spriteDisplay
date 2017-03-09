@@ -55,17 +55,22 @@ Start:
 
 	ldx #$0000
 	lda #0
+	ldy #%00000000
 _loopAlphabet:
-	sta $0000, X
+	sta $0000, X	;x-coord
 	inx
+			;y-coord
 	inx
+	sty $0000, X	;starting tile
 	inx
+			;flipping, priority
 	inx
 	ina
 	ina
 	ina
 	ina
-	ina	
+	ina
+	iny
 	cpx #60
 	bne _loopAlphabet
 
