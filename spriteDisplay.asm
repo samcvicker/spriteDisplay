@@ -53,7 +53,7 @@ _loopAlphabet:
 	ina
 	ina
 	iny
-	cpx #100
+	cpx #200
 	bne _loopAlphabet
 
 	;lda #%00000000	;clear x-msb
