@@ -46,12 +46,31 @@ Start:
 	;stz $0001
 	;stz $0002
 	;stz $0003
-	lda #7
+	lda #8
 	sta $0004
 	;sta $0005
 	lda #%00000010
 	sta $0006
 	stz $0007
+
+	ldx #$0000
+	lda #0
+_loopAlphabet:
+	sta $0000, X
+	inx
+	inx
+	inx
+	inx
+	ina
+	ina
+	ina
+	ina
+	ina
+	ina
+	ina
+	ina
+	cpx #60
+	bne _loopAlphabet
 
 	lda #%00000000	;clear x-msb
 	sta $0200
