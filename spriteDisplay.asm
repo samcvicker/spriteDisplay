@@ -35,24 +35,6 @@ Start:
 
 	jsr SpriteInit
 
-	;lda #($80-16)
-	;sta $0000	; sprite x-coordinate
-	;lda #(224/2 - 16)
-	;sta $0001	;sprite y-coordinate
-	;stz $0002	;starting at tile 0 of tileset
-	;lda #%01110000	;horizontal flip, top priority
-	;sta $0003
-	;stz $0000
-	;stz $0001
-	;stz $0002
-	;stz $0003
-	lda #8
-	sta $0004
-	;sta $0005
-	lda #%00000010
-	sta $0006
-	stz $0007
-
 	ldx #$0000
 	lda #0
 	ldy #%00000000
@@ -71,7 +53,7 @@ _loopAlphabet:
 	ina
 	ina
 	iny
-	cpx #60
+	cpx #20
 	bne _loopAlphabet
 
 	lda #%00000000	;clear x-msb
