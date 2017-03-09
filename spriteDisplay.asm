@@ -54,8 +54,7 @@ Start:
 	;sta $0006
 	;stz $0007
 
-	;lda #%01010100	;clear x-msb
-	lda #%00000000
+	lda #%01010100	;clear x-msb
 	sta $0200
 
 	jsr SetupVideo
@@ -79,15 +78,14 @@ SpriteInit:
 	rep #$30	;16 bit A/X/Y
 
 	ldx #$0000
-	lda #$01	;prepare loop 1
+	;lda #$01	;prepare loop 1
 ;puts all sprites offscreen
 _offscreen:
-	sta $0000, X	;increases 4 times bc 4 bytes per sprite
-	inx	;Byte 1: xxxxxxxx 	x: X coordinate
-	inx	;Byte 2: yyyyyyyy	y: Y cordinate
-	inx	;Byte 3: cccccccc	c: Starting tile #
-	inx	;Byte 4: vhoopppc	v: vertical flip, h: horizontal
-			;flip, o: priority bits, p: palette #
+	sta $0000, X
+	inx
+	inx
+	inx
+	inx
 	cpx #$0200	;200 is the size of the first OAM table
 	bne _offscreen
 	ldx #$0000
