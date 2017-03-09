@@ -54,7 +54,7 @@ Start:
 	;sta $0006
 	;stz $0007
 
-	lda #%01010100	;clear x-msb
+	lda #%11111111	;clear x-msb
 	sta $0200
 
 	jsr SetupVideo
@@ -78,7 +78,7 @@ SpriteInit:
 	rep #$30	;16 bit A/X/Y
 
 	ldx #$0000
-	lda #01	;prepare loop 1
+	lda #$01	;prepare loop 1
 ;puts all sprites offscreen
 _offscreen:
 	sta $0000, X
