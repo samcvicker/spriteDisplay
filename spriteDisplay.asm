@@ -54,7 +54,7 @@ Start:
 	;sta $0006
 	;stz $0007
 
-	lda #%01010100	;clear x-msb
+	lda #%01010110	;clear x-msb
 	sta $0200
 
 	jsr SetupVideo
