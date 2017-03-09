@@ -53,7 +53,7 @@ _loopAlphabet:
 	ina
 	ina
 	iny
-	cpx #20
+	cpx #60
 	bne _loopAlphabet
 
 	lda #%00000000	;clear x-msb
@@ -91,7 +91,7 @@ _offscreen:
 	cpx #$0200	;200 is the size of the first OAM table
 	bne _offscreen
 	ldx #$0000
-	lda #$5555
+	lda #$0000	;CHANGE THIS TO #$5555 (01010101)
 _clr:
 	sta $0200, X	;increases 2 times bc 2 bits per sprite
 	inx	;bit1 - enable or disable the x coordinate's 9th bit
