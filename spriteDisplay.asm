@@ -86,6 +86,7 @@ _offscreen:
 	inx
 	inx
 	inx
+	ina
 	cpx #$0200	;200 is the size of the first OAM table
 	bne _offscreen
 	ldx #$0000
