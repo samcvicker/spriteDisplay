@@ -78,7 +78,7 @@ SpriteInit:
 	rep #$30	;16 bit A/X/Y
 
 	ldx #$0000
-	lda #$01	;prepare loop 1
+	lda #0002	;prepare loop 1
 ;puts all sprites offscreen
 _offscreen:
 	sta $0000, X
@@ -86,7 +86,6 @@ _offscreen:
 	inx
 	inx
 	inx
-	ina
 	cpx #$0200	;200 is the size of the first OAM table
 	bne _offscreen
 	ldx #$0000
