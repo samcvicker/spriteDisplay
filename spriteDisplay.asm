@@ -72,9 +72,6 @@ _topWindows:
 	ina
 	cpx #112
 	bne _topWindows
-
-	php
-	rep #$30
 	
 	ldx #0
 _clearXSMB:
@@ -83,9 +80,6 @@ _clearXSMB:
 	inx
 	cpx #12
 	bne _clearXSMB
-
-	rep #$10
-	plp
 
 	jsr SetupVideo
 
