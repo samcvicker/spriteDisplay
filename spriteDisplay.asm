@@ -27,7 +27,7 @@ Start:
 	stz $2121
 	lda #$40
 	sta $2122
-	;sta $2122
+	sta $2122
 
 	LoadPalette SprPal, 128, 16	;sprite palettes start at
 					;color 128
@@ -99,7 +99,7 @@ SpriteInit:
 	rep #$30	;16 bit A/X/Y
 
 	ldx #$0000
-	lda #$01	;prepare loop 1
+	lda #$100	;prepare loop 1
 ;puts all sprites offscreen
 _offscreen:
 	sta $0000, X
