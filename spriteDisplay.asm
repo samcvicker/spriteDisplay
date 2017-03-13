@@ -20,7 +20,7 @@ Start:
 	rep #$10
 	sep #$20
 
-	lda #%00000011
+	lda #%00000001
 	sta $2105
 
 	;LoadBlockToVRAM background1, $0801, $0F00
