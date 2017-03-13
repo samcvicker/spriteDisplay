@@ -20,9 +20,12 @@ Start:
 	rep #$10
 	sep #$20
 
-	lda #%00000001
+	lda #%00000011
 	sta $2105
 
+	LoadBlockToVRAM background1, $0801, $0F00
+	lda #%00001011
+	sta $2108
 	;blue background
 	stz $2121
 	lda #$40
@@ -32,7 +35,6 @@ Start:
 	LoadPalette SprPal, 128, 16	;sprite palettes start at
 					;color 128
 	LoadBlockToVRAM Sprite, $0000, $0800
-	LoadBlockToVRAM background1, $0801, $0F00
 
 	jsr SpriteInit
 
