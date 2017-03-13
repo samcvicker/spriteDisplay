@@ -75,7 +75,7 @@ _topWindows:
 
 	ldx #0
 _clearXSMB:
-	lda #%01010101	;clear x-msb
+	lda #%00010101	;clear x-msb
 	sta $0200, X
 	inx
 	cpx #12
