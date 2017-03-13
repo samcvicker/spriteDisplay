@@ -35,22 +35,22 @@ Start:
 
 	jsr SpriteInit
 
-	;lda #8
-	;sta $0000
-	;lda #8
-	;sta $0001
-	;lda #8
-	;sta $0004
-	;lda #16
-	;sta $0005
-	;lda #%00000001
-	;sta $0006
-	;lda #8
-	;sta $0008
-	;lda #24
-	;sta $0009
-	;lda #%00000001
-	;sta $000A
+	lda #8
+	sta $0000
+	lda #8
+	sta $0001
+	lda #8
+	sta $0004
+	lda #16
+	sta $0005
+	lda #%00000001
+	sta $0006
+	lda #8
+	sta $0008
+	lda #24
+	sta $0009
+	lda #%00000001
+	sta $000A
 	
 	
 ;	ldx #$0000
@@ -99,7 +99,7 @@ SpriteInit:
 	rep #$30	;16 bit A/X/Y
 
 	ldx #$0000
-	lda #$0FF	;prepare loop 1
+	lda #$00	;prepare loop 1
 ;puts all sprites offscreen
 _offscreen:
 	sta $0000, X
