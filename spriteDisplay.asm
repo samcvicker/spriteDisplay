@@ -75,6 +75,8 @@ _topWindows:
 
 	lda #%01000000	;clear x-msb
 	sta $0200
+	lda #%00000000
+	sta $0201
 
 	jsr SetupVideo
 
