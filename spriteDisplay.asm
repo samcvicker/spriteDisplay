@@ -75,14 +75,11 @@ _topWindows:
 
 	ldx #0
 _clearXSMB:
-	lda #%00000000	;clear x-msb
+	lda #%00010000	;clear x-msb
 	sta $0200, X
 	inx
 	cpx #12
 	bne _clearXSMB
-	dex
-	lda #%01000000
-	sta $0200, X
 
 	jsr SetupVideo
 
