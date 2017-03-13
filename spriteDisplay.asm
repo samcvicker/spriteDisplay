@@ -99,7 +99,7 @@ SpriteInit:
 	rep #$30	;16 bit A/X/Y
 
 	ldx #$0000
-	lda #$F9	;prepare loop 1
+	lda #$FFFF	;prepare loop 1
 ;puts all sprites offscreen
 _offscreen:
 	sta $0000, X
@@ -110,7 +110,9 @@ _offscreen:
 	cpx #$0200	;200 is the size of the first OAM table
 	bne _offscreen
 	ldx #$0000
-	lda #$5555	;CHANGE THIS TO #$5555 (01010101)
+	lda #$5555	;(0101010101010101)
+			;i.e. set the first 8 objects in OAM
+			;off screen and of small size
 _clr:
 	sta $0200, X	;increases 2 times bc 2 bits per sprite
 	inx	;bit1 - enable or disable the x coordinate's 9th bit
