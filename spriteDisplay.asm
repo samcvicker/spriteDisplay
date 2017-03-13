@@ -75,8 +75,8 @@ Start:
 ;	cpx #200
 ;	bne _loopAlphabet
 
-	lda #%00000000	;clear x-msb
-	sta $0200
+	;lda #%00000000	;clear x-msb
+	;sta $0200
 
 	jsr SetupVideo
 
