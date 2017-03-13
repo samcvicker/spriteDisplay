@@ -35,22 +35,22 @@ Start:
 
 	jsr SpriteInit
 
-	lda #8
-	sta $0000
-	lda #8
-	sta $0001
-	lda #8
-	sta $0004
-	lda #16
-	sta $0005
-	lda #%00000001
-	sta $0006
-	lda #8
-	sta $0008
-	lda #24
-	sta $0009
-	lda #%00000001
-	sta $000A
+	;lda #8
+	;sta $0000
+	;lda #8
+	;sta $0001
+	;lda #8
+	;sta $0004
+	;lda #16
+	;sta $0005
+	;lda #%00000001
+	;sta $0006
+	;lda #8
+	;sta $0008
+	;lda #24
+	;sta $0009
+	;lda #%00000001
+	;sta $000A
 	
 	
 ;	ldx #$0000
