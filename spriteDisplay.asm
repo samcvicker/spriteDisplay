@@ -32,6 +32,7 @@ Start:
 	LoadPalette SprPal, 128, 16	;sprite palettes start at
 					;color 128
 	LoadBlockToVRAM Sprite, $0000, $0800
+	LoadBlockToVRAM background1, $0801, $0F00
 
 	jsr SpriteInit
 
@@ -177,4 +178,6 @@ Sprite:
 	.INCBIN "windows.pic"
 SprPal:
 	.INCBIN "windows.clr"
+background1:
+	.INCBIN "bg1.map"
 .ENDS
