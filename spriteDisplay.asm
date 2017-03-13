@@ -52,34 +52,8 @@ Start:
 	;lda #%00000001
 	;sta $000A
 	
-	lda #16	;x coordinate
-	ldx #4	;counter
-
-_topWindows:
-	sta $0000, X	;x-coord
-	inx
-	ldy #8
-	sty $0000, X		;y-coord
-	inx
-	ldy #%00000100	;tile number
-	sty $0000, X	;starting tile
-	inx
-			;flipping, priority
-	inx
-	ina
-	ina
-	ina
-	ina
-	cpx #112
-	bne _topWindows
-	
-	ldx #0
-_clearXMSB:
-	lda #%00000000	;clear x-msb
-	sta $0200, X
-	inx
-	cpx #12
-	bne _clearXMSB
+	lda #%01010101
+	sta $0200
 
 	jsr SetupVideo
 
@@ -102,7 +76,7 @@ SpriteInit:
 	rep #$30	;16 bit A/X/Y
 
 	ldx #$0000
-	lda #$00	;prepare loop 1
+	lda #$0000	;prepare loop 1
 ;puts all sprites offscreen
 _offscreen:
 	sta $0000, X
@@ -123,7 +97,6 @@ _clr:
 	inx	;bit2 - toggle sprite size: 0 - small, 1 - large
 	cpx #$0020	;20 is the size of the OAM table
 	bne _clr
-	sta $0200, X
 
 	plp
 
