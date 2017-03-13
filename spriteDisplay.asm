@@ -73,7 +73,7 @@ _topWindows:
 	cpx #112
 	bne _topWindows
 
-	lda #%00000000
+	lda #%00010100
 	sta $0200
 
 	ldx #0
