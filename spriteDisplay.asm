@@ -73,13 +73,13 @@ _topWindows:
 	cpx #112
 	bne _topWindows
 
-	lda #%01000000
+	lda #%00000000
 	sta $0200
 
 	ldx #0
 _clearXSMB:
 	lda #%00000000	;clear x-msb
-	sta $0202, X
+	sta $0201, X
 	inx
 	cpx #12
 	bne _clearXSMB
