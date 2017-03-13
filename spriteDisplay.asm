@@ -38,12 +38,12 @@ Start:
 					;color 128
 	LoadBlockToVRAM Sprite, $0000, $0800
 
-	jsr SpriteInit
+	;jsr SpriteInit
 
-	lda #8
-	sta $0000
-	lda #8
-	sta $0001
+	;lda #8
+	;sta $0000
+	;lda #8
+	;sta $0001
 	;lda #8
 	;sta $0004
 	;lda #16
@@ -57,8 +57,8 @@ Start:
 	;lda #%00000001
 	;sta $000A
 	
-	lda #%00000000
-	sta $0200
+	;lda #%00000000
+	;sta $0200
 
 	jsr SetupVideo
 
