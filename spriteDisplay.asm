@@ -35,6 +35,24 @@ Start:
 
 	jsr SpriteInit
 
+	lda #8
+	sta $0000
+	lda #8
+	sta $0001
+	lda #8
+	sta $0004
+	lda #16
+	sta $0005
+	lda #%00000001
+	sta $0006
+	lda #8
+	sta $0008
+	lda #24
+	sta $0009
+	lda #%00000001
+	sta $000A
+	
+	
 ;	ldx #$0000
 ;	lda #0
 ;	ldy #%00000000
@@ -57,8 +75,8 @@ Start:
 ;	cpx #200
 ;	bne _loopAlphabet
 
-	;lda #%00000000	;clear x-msb
-	;sta $0200
+	lda #%00000000	;clear x-msb
+	sta $0200
 
 	jsr SetupVideo
 
