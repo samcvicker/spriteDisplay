@@ -27,7 +27,7 @@ Start:
 	stz $2121
 	lda #$40
 	sta $2122
-	sta $2122
+	;sta $2122
 
 	LoadPalette SprPal, 128, 16	;sprite palettes start at
 					;color 128
@@ -75,8 +75,8 @@ Start:
 ;	cpx #200
 ;	bne _loopAlphabet
 
-	;lda #%00000000	;clear x-msb
-	;sta $0200
+	lda #%00000000	;clear x-msb
+	sta $0200
 
 	jsr SetupVideo
 
