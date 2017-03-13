@@ -112,7 +112,6 @@ _offscreen:
 	inx
 	cpx #$0200	;200 is the size of the first OAM table
 	bne _offscreen
-	sta $0000, X
 	ldx #$0000
 	lda #$5555	;(0101010101010101)
 			;i.e. set the first 8 objects in OAM
@@ -124,6 +123,7 @@ _clr:
 	inx	;bit2 - toggle sprite size: 0 - small, 1 - large
 	cpx #$0020	;20 is the size of the OAM table
 	bne _clr
+	sta $0200, X
 
 	plp
 
