@@ -80,7 +80,7 @@ _clearXSMB:
 	inx
 	cpx #12
 	bne _clearXSMB
-
+	dex
 	lda #%01000000
 	sta $0200, X
 
