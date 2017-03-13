@@ -73,13 +73,19 @@ _topWindows:
 	cpx #112
 	bne _topWindows
 
+	php
+	rep #$30
+	
 	ldx #0
 _clearXSMB:
-	lda #%01000000	;clear x-msb
+	lda #%00000000	;clear x-msb
 	sta $0200, X
 	inx
 	cpx #12
 	bne _clearXSMB
+
+	plp
+	rep #$10
 
 	jsr SetupVideo
 
