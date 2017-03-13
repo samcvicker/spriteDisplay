@@ -74,12 +74,12 @@ _topWindows:
 	bne _topWindows
 	
 	ldx #0
-_clearXSMB:
+_clearXMSB:
 	lda #%00000000	;clear x-msb
 	sta $0200, X
 	inx
 	cpx #12
-	bne _clearXSMB
+	bne _clearXMSB
 
 	jsr SetupVideo
 
@@ -112,6 +112,7 @@ _offscreen:
 	inx
 	cpx #$0200	;200 is the size of the first OAM table
 	bne _offscreen
+	sta $0000, X
 	ldx #$0000
 	lda #$5555	;(0101010101010101)
 			;i.e. set the first 8 objects in OAM
