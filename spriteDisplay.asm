@@ -35,27 +35,27 @@ Start:
 
 	jsr SpriteInit
 
-	ldx #$0000
-	lda #0
-	ldy #%00000000
-_loopAlphabet:
-	sta $0000, X	;x-coord
-	inx
-			;y-coord
-	inx
-	sty $0000, X	;starting tile
-	inx
-			;flipping, priority
-	inx
-	ina
-	ina
-	ina
-	ina
-	ina
-	ina
-	iny
-	cpx #200
-	bne _loopAlphabet
+;	ldx #$0000
+;	lda #0
+;	ldy #%00000000
+;_loopAlphabet:
+;	sta $0000, X	;x-coord
+;	inx
+;			;y-coord
+;	inx
+;	sty $0000, X	;starting tile
+;	inx
+;			;flipping, priority
+;	inx
+;	ina
+;	ina
+;	ina
+;	ina
+;	ina
+;	ina
+;	iny
+;	cpx #200
+;	bne _loopAlphabet
 
 	;lda #%00000000	;clear x-msb
 	;sta $0200
