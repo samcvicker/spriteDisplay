@@ -79,7 +79,7 @@ _topWindows:
 	ldx #0
 _clearXSMB:
 	lda #%00000000	;clear x-msb
-	sta $0201, X
+	sta $0202, X
 	inx
 	cpx #12
 	bne _clearXSMB
