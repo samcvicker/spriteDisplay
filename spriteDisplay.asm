@@ -81,6 +81,9 @@ _clearXSMB:
 	cpx #12
 	bne _clearXSMB
 
+	lda #%01000000
+	sta $0200, X
+
 	jsr SetupVideo
 
 	lda #$80
