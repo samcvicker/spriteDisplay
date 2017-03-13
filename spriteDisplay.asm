@@ -39,41 +39,38 @@ Start:
 	sta $0000
 	lda #8
 	sta $0001
-	lda #8
-	sta $0004
-	lda #16
-	sta $0005
-	lda #%00000001
-	sta $0006
-	lda #8
-	sta $0008
-	lda #24
-	sta $0009
-	lda #%00000001
-	sta $000A
+	;lda #8
+	;sta $0004
+	;lda #16
+	;sta $0005
+	;lda #%00000001
+	;sta $0006
+	;lda #8
+	;sta $0008
+	;lda #24
+	;sta $0009
+	;lda #%00000001
+	;sta $000A
 	
-	
-;	ldx #$0000
-;	lda #0
-;	ldy #%00000000
-;_loopAlphabet:
-;	sta $0000, X	;x-coord
-;	inx
-;			;y-coord
-;	inx
-;	sty $0000, X	;starting tile
-;	inx
-;			;flipping, priority
-;	inx
-;	ina
-;	ina
-;	ina
-;	ina
-;	ina
-;	ina
-;	iny
-;	cpx #200
-;	bne _loopAlphabet
+	lda #16	;x coordinate
+	ldx #4	;counter
+	ldy #%00000001	;tile number
+
+_topWindows:
+	sta $0000, X	;x-coord
+	inx
+			;y-coord
+	inx
+	sty $0000, X	;starting tile
+	inx
+			;flipping, priority
+	inx
+	ina
+	ina
+	ina
+	ina
+	cpx #112
+	bne _topWindows
 
 	lda #%01000000	;clear x-msb
 	sta $0200
