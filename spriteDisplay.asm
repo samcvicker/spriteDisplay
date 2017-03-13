@@ -84,8 +84,8 @@ _clearXSMB:
 	cpx #12
 	bne _clearXSMB
 
-	plp
 	rep #$10
+	plp
 
 	jsr SetupVideo
 
