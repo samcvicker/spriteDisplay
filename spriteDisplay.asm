@@ -52,7 +52,7 @@ Start:
 	;lda #%00000001
 	;sta $000A
 	
-	lda #%01010101
+	lda #%00000000
 	sta $0200
 
 	jsr SetupVideo
