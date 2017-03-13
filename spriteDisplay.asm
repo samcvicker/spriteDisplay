@@ -23,11 +23,11 @@ Start:
 	lda #%00000011
 	sta $2105
 
-	LoadBlockToVRAM background1, $0801, $0F00
-	lda #%00001011
-	sta $2108
-	lda #%10000000
-	sta $210B
+	;LoadBlockToVRAM background1, $0801, $0F00
+	;lda #%00001011
+	;sta $2108
+	;lda #%10000000
+	;sta $210B
 	;blue background
 	stz $2121
 	lda #$40
