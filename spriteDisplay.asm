@@ -54,13 +54,14 @@ Start:
 	
 	lda #16	;x coordinate
 	ldx #4	;counter
-	ldy #%00000100	;tile number
 
 _topWindows:
 	sta $0000, X	;x-coord
 	inx
-			;y-coord
+	ldy #8
+	sty $0000, X		;y-coord
 	inx
+	ldy #%00000100	;tile number
 	sty $0000, X	;starting tile
 	inx
 			;flipping, priority
