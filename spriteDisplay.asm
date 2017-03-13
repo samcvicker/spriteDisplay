@@ -54,7 +54,7 @@ Start:
 	
 	lda #16	;x coordinate
 	ldx #4	;counter
-	ldy #%00000001	;tile number
+	ldy #%00000100	;tile number
 
 _topWindows:
 	sta $0000, X	;x-coord
